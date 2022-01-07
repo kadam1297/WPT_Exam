@@ -1,0 +1,116 @@
+
+HELP.TXT FILE==> 210940520060_Prashant Kadam_JH
+
+
+[ 1 ]   Create new folder USER.JS & open that.
+
+2.   npm init (it will create package.json)
+
+3.   Create src folder
+
+4.   Install external modules
+     1. npm install mysql
+     2. npm install bluebird
+     3. npm install express
+     4. Go to package.json and do ==> npm install nodemon 
+        then  in Scripts write ==> "start" : "nodemon src/main.js", 
+
+5.  In the program
+  a. Add to following lines to user.js
+     const Promise = require("bluebird");
+     const mysql = require("mysql");
+     Promise.promisifyAll(require("mysql/lib/Connection").prototype);
+
+  b. const dbinfo = {
+     host: "localhost",
+     user: "root",
+     password: "password",
+     database: "project",
+     };
+
+     change username and password if error occurs
+     ==> ALTER USER 'root'@'localhost'IDENTIFIED WITH mysql_native_password BY 'password';
+
+  c. const selectAllUser = async () => {
+     const connection = mysql.createConnection(dbinfo);
+
+     await connection.connectAsync();
+
+     await connection.endAsync();
+     return list;
+     };
+
+
+	This one is for user.js
+
+
+6.   To run program
+     ==> node src/user.js 
+
+
+
+
+[ 2 ]   Create new folder MAIN.JS & open that.
+
+1.    Install external module
+     1. Go to package.json and do ==> npm install nodemon 
+        then  in Scripts write ==> "start" : "nodemon src/main.js",
+     2. npm install cors
+
+
+2.    In the program
+   a. Add to following lines to main.js  
+
+      const express = require("express");
+
+      const app = express();
+      app.use(express.json());
+
+      const cors = require("cors");
+      app.use(cors());
+
+	This one is for main.js
+     
+
+     
+
+/***** FRONT END (REACT)  *****/
+
+1.    Install external module
+      1. npm install axios
+      2. npm install bootstrap
+
+2.    Add following line to index.js
+      ==> import "bootstrap/dist/css/bootstrap.min.css";
+
+3.    In the program
+      import axios from "axios";
+      import { useState } from "react";
+
+	This one is for app.js
+      
+     
+
+
+*************Bootstrap*********
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+============================================
+
+https://testmoz.com/q/11318944
+
+
+
